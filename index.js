@@ -54,6 +54,7 @@ const SignatureView = forwardRef(({
   trimWhitespace = false,
   webStyle = "",
   webviewContainerStyle = null,
+  webviewProps
 }, ref) => {
   const [loading, setLoading] = useState(true);
   const webViewRef = useRef();
@@ -196,6 +197,7 @@ const SignatureView = forwardRef(({
         javaScriptEnabled={true}
         onError={renderError}
         onLoadEnd={() => setLoading(false)}
+        {...webviewProps}
       />
       {loading && <View style={styles.loadingOverlayContainer}>
         <ActivityIndicator />
